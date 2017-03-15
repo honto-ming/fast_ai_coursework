@@ -1,0 +1,20 @@
+VGG architecture notes
+
+____________________________________________________________________________________________________
+Layer (type)                     Output Shape          Param #     Connected to                     
+====================================================================================================
+lambda_1 (Lambda)                (None, 3, 224, 224)   0           lambda_input_1[0][0]              input after normalizing by average values across imagenet pic set
+____________________________________________________________________________________________________
+zeropadding2d_1 (ZeroPadding2D)  (None, 3, 226, 226)   0           lambda_1[0][0]                    0-pad so convolution output (3 x 3, stride =  1 x 1) will match input pic size
+____________________________________________________________________________________________________
+convolution2d_1 (Convolution2D)  (None, 64, 224, 224)  1792        zeropadding2d_1[0][0]             64 filters of (3 x 3 x 3) + 1
+____________________________________________________________________________________________________
+zeropadding2d_2 (ZeroPadding2D)  (None, 64, 226, 226)  0           convolution2d_1[0][0]             0-pad so convolution output (3 x 3, stride = 1) will match input pic size
+____________________________________________________________________________________________________ 
+convolution2d_2 (Convolution2D)  (None, 64, 224, 224)  36928       zeropadding2d_2[0][0]             64 filters of (3 x 3 x 64) + 1 64 input channels
+____________________________________________________________________________________________________
+maxpooling2d_1 (MaxPooling2D)    (None, 64, 112, 112)  0           convolution2d_2[0][0]             max-pool (2 x 2, stride = 2 x 2)
+____________________________________________________________________________________________________
+
+...
+

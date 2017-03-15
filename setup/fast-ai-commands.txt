@@ -1,0 +1,20 @@
+# Connect to your instance:
+ssh -i /home/honto/.ssh/aws-key-fast-ai.pem ubuntu@ec2-52-40-217-145.us-west-2.compute.amazonaws.com
+# Stop your instance: :
+aws ec2 stop-instances --instance-ids i-0a0eb3c8f8af03637
+# Start your instance:
+aws ec2 start-instances --instance-ids i-0a0eb3c8f8af03637
+# Reboot your instance:
+aws ec2 reboot-instances --instance-ids i-0a0eb3c8f8af03637
+export instanceId=i-0a0eb3c8f8af03637
+export subnetId=subnet-9374d3da
+export securityGroupId=sg-950e2bed
+export instanceUrl=ec2-52-40-217-145.us-west-2.compute.amazonaws.com
+export routeTableId=rtb-b4899dd3
+export name=fast-ai
+export vpcId=vpc-67631600
+export internetGatewayId=igw-cdb88ba9
+export subnetId=subnet-9374d3da
+export allocAddr=eipalloc-c4c9d7a3
+export assocId=eipassoc-c13f75bb
+export routeTableAssoc=rtbassoc-68e6cf0e
